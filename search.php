@@ -26,29 +26,29 @@
             echo  "<h3>Please enter a search query</h3>";
             exit();
           case 1:
-            $sql = "select name,ipaddy,os,cidr,subnet from flat where name like '%" . $name . "%'";
+            $sql = "select name,ipaddy,os,cidr,subnet from flat where name like '%" . $name . "%' order by subnet";
             break;
           case 2:
-            $sql = "select name,ipaddy,os,cidr,subnet from flat where ipaddy like '%" . $ipaddress . "%'";
+            $sql = "select name,ipaddy,os,cidr,subnet from flat where ipaddy like '%" . $ipaddress . "%' order by subnet";
             break;
           case 3:
-            $sql = "select name,ipaddy,os,cidr,subnet from flat where name like '%" . $name . "%'" . 
+            $sql = "select name,ipaddy,os,cidr,subnet from flat where name like '%" . $name . "%' order by subnet" . 
                     " and ipaddy like '%" . $ipaddress . "%'";
             break;
           case 4:
-            $sql = "select name,ipaddy,os,cidr,subnet from flat where os like '%" . $osys . "%'";
+            $sql = "select name,ipaddy,os,cidr,subnet from flat where os like '%" . $osys . "%' order by subnet";
             break;
           case 5:
             $sql = "select name,ipaddy,os,cidr,subnet from flat where name like '%" . $name . "%'" . 
-                    " and os like '%" . $osys . "%'";
+                    " and os like '%" . $osys . "%' order by subnet";
             break;
           case 6:
             $sql = "select name,ipaddy,os,cidr,subnet from flat where ipaddy like '%" . $ipaddress . "%'" .
-                    " and os like '%" . $osys . "%'";
+                    " and os like '%" . $osys . "%' order by subnet";
             break;
           case 7:
             $sql = "select name,ipaddy,os,cidr,subnet from flat where name like '%" . $name . "%'" . 
-                    " and os like '%" . $osys . "%'" . " and ipaddy like '%" . $ipaddress . "%'";
+                    " and os like '%" . $osys . "%'" . " and ipaddy like '%" . $ipaddress . "%' order by subnet";
         }
         
         $result = mysqli_query($conn,$sql);
